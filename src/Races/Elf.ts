@@ -4,8 +4,8 @@ export default class Elf extends Race {
   private _maxLifePoints: number;
   static elfCount = 0;
 
-  constructor(name: string, dexterity: number, maxLifePoints = 99) {
-    super(name, dexterity);
+  constructor(_name: string, _dexterity: number, maxLifePoints = 99) {
+    super(_name, _dexterity);
     this._maxLifePoints = maxLifePoints;
 
     Elf.elfCount += 1;
