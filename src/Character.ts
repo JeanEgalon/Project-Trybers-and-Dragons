@@ -59,10 +59,6 @@ implements SimpleFighter, Fighter {
     return { ...this._energy };
   }
 
-  attack(enemy: SimpleFighter): void {
-    enemy.receiveDamage(this._strength);
-  }
-
   levelUp(): void {
     this._maxLifePoints += getRandomInt(1, 10);
     if (this._maxLifePoints > this._race.maxLifePoints) {
@@ -73,6 +69,10 @@ implements SimpleFighter, Fighter {
     this._dexterity += getRandomInt(1, 10);
     this._defense += getRandomInt(1, 10);
     this._energy.amount = 10;
+  }
+
+  attack(enemy: SimpleFighter): void {
+    enemy.receiveDamage(this._strength);
   }
 
   receiveDamage(attackPoints: number): number {

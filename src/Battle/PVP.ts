@@ -21,14 +21,19 @@ export default class PVP extends Battle {
   }
 
   fight(): number {
-    const fpLife = this.firstPlayer.lifePoints;
-    const spLife = this.secondPlayer.lifePoints;
-
-    if (fpLife > 0 || spLife > 0) {
+    while (this.firstPlayerIsAlive() && this.secondPlayerIsAlive()) {
       this.firstPlayer.attack(this.secondPlayer);
       this.secondPlayer.attack(this.firstPlayer);
     }
 
     return super.fight();
+  }
+
+  private firstPlayerIsAlive(): boolean {
+    return this.firstPlayer.lifePoints > 0;
+  }
+
+  private secondPlayerIsAlive(): boolean {
+    return this.secondPlayer.lifePoints > 0;
   }
 }
